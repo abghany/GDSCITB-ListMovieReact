@@ -1,38 +1,345 @@
-.App {
+@font-face {
+  font-family: 'poppins';
+  src: url(./components/font/Poppins-Medium.ttf);
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+  font-family: poppins, serif;
+  background-color: rgba(151,151,151,0.083);
+}
+
+*{
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+  font-family: poppins;
+  border: 1px solid rgba(0,0,0,0.04);
+  background-color: #ffffff;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 100;
+}
+
+.logo img {
+  height: 55px;
+}
+
+nav .menu {
+  display: flex;
+}
+
+nav .menu li a{
+  height: 40px;
+  line-height: 43px;
+  margin: 0px;
+  padding: 0px 22px;
+  display: flex;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: #585858;
+  letter-spacing: 1px;
+}
+
+.search {
+  width: 250px;
+  height: 40px;
+  background-color: rgba(245,245,245,0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  padding: 0px 20px;
+}
+
+.search input {
+  width: 100%;
+  height: 30px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+
+.search i {
+  color: #3a3a3a;
+}
+
+nav .menu li a:hover {
+  background-color: #242424;
+  color: #ffffff;
+  box-shadow: 5px 10px 30px rgba(53,53,53,0.1);
+  transition: all ease 0.2s;
+}
+
+nav ul li .activated-home {
+  color: black;
+}
+
+nav ul li .activated-wishlist {
+  color: black;
+}
+
+.movies-heading h2 {
+  font-weight: 400;
+  margin-top: 85px;
+  padding: 5px 20px;
+  background-color: rgba(0,0,0,0.01);
+  border: 1px solid(0,0,0,0.06);
+  font-size: 1.7rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.movies-heading {
+  padding-left: 80px;
+  display: flex;
+  margin: 0px 2%;
+}
+
+.movies-box {
+  width: 200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: 2px 2px 30px rgba(0,0,0,0.2);
+  margin: 15px;
+  border-radius: 5px;
+  overflow: hidden;
+  border-top: 3px solid #292929;
+}
+
+.movies-img {
+  width: 100%;
+  height: 270px;
+  position: relative;
+}
+
+.movies-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.movies-box:hover {
+  transform: translateY(-10px);
+  transition: all ease 0.2s;
+}
+
+.movie-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.overview-header {
+  font-size: xx-large;
+  text-align: center;
+  margin: 5% auto;
+}
+
+.overview-content {
+  background-color: #f0f0f0;
+  margin: 0.5px auto; 
+  padding: 20px;
+}
+
+.overview-poster {
+  width: 25%;
+  object-fit: cover;
+  border-radius: 6px;
+  justify-self: center;
+  vertical-align: middle;
+  grid-column: 1;
+}
+
+.overview-movie {
+  display: flex;
+  grid-template-columns: 50% 50%;
+}
+
+.about-movie {
+  margin: 15px;
+}
+
+.movie-desc {
+  text-align: justify;
+}
+
+.btn-back:hover {
+  cursor: pointer;
+  color: gray;
+}
+
+.btn {
+  display: flex;
+  justify-content: start;
+  align-items: flex-start;
+}
+
+.btn .btn-back{
+  width: 130px;
+  height: 40px;
+  border: none;
+  outline: none;
+  color: #000000;
+  background-color: #ffffff;
+  border: 2px solid #585858;
+  border-color: #585858;
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.8rem;
+}
+
+.btn .btn-back:hover {
+  background-color: #1b1b1b;
+  border-color: #1b1b1b;
+  color: #ffffff;
+}
+
+.btn .imdb-page{
+  width: 130px;
+  height: 40px;
+  border: none;
+  outline: none;
+  color: #000000;
+  background-color: #ffffff;
+  border: 2px solid #585858;
+  border-color: #585858;
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.8rem;
+}
+
+.btn .imdb-page:hover {
+  background-color: #1b1b1b;
+  border-color: #1b1b1b;
+  color: #ffffff;
+}
+
+.btn .add-to-wishlist{
+  width: 130px;
+  height: 40px;
+  border: none;
+  outline: none;
+  color: #ffffff;
+  background-color: #1b1b1b;
+  border: 2px solid #585858;
+  border-color: #585858;
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.8rem;
+}
+
+.btn .add-to-wishlist:hover {
+  background-color: #e2dfdf;
+  border-color: #e2dfdf;
+  color: #1b1b1b;
+  cursor: pointer;
+}
+
+.wishlist {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  padding: 1em;
+}
+
+.wishlist-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: 95px;
+  padding: 0;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.wishlist-header {
+  padding: 1em;  
+  background-color: black;
+  color: white;
+  font-size: large;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.cards {
+  padding: 2px;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  flex-direction: row;
+  margin: 15px;
+}
+
+.wishlist-card {
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  width: 35%;
+  margin: 50px;
+  text-align: center;
+}
+
+.wishlist-card img {
+  border-radius: 10px 10px 10px 10px;
+  width: 95%;
+  margin-top: 8px;
+}
+
+.card .detail {
+  padding: 0px 10px 10px 10px;  
+}
+
+.btn-remove p {
+  font-size: 0.9rem;
+  background-color: #ffffff;
+  color: #000000;
+  border: 2px solid #921d1d;
+  border-color: #921d1d;
+  border-radius: 50px;
+  padding: 2px;
+  max-height: 180px;
+  cursor: pointer;
+}
+
+.btn-remove p:hover {
+  background-color: #921d1d;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-top: 1px solid rgba(0,0,0,0.1);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+footer p {
+  color: #5e5e5e;
+  margin: 20px 0px;
+  font-size: 0.9rem;
 }
